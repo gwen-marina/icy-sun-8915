@@ -13,6 +13,7 @@
 <p>Subject: <%= @employee.tickets.order_by_oldest.first.subject %></p>
 <p>Age: <%= @employee.tickets.order_by_oldest.first.age %></p>
 
+<h2> Add ticket</h2>
 <%= form_with url: "/employees/#{@employee.id}", method: :post, local: true do |form| %>
   <%= form.label :subject %>
   <%= form.text_field :subject %>

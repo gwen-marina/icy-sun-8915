@@ -78,6 +78,7 @@ RSpec.describe "Emplyoee Show Page", type: :feature do
 
     expect(current_path).to eq("/employees/#{emp1.id}")
     expect(page).to have_content('Send out weekly survey')
+    save_and_open_page
   end
 end
 
