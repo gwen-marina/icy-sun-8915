@@ -68,7 +68,7 @@ RSpec.describe "Emplyoee Show Page", type: :feature do
     tic1 = emp1.tickets.create!(subject: "Create new hire folders", age: 2)
     tic2 = emp1.tickets.create!(subject: "Review employee complaints", age: 3)
     tic3 = emp1.tickets.create!(subject: "Go over weekly survey results", age: 1)
-    tic4 = Ticket.create!(subject: "Send out weekly survey", age: 1)
+    # tic4 = Ticket.create!(subject: "Send out weekly survey", age: 1)
 
     visit "/employees/#{emp1.id}"
 
@@ -78,7 +78,6 @@ RSpec.describe "Emplyoee Show Page", type: :feature do
 
     expect(current_path).to eq("/employees/#{emp1.id}")
     expect(page).to have_content('Send out weekly survey')
-    save_and_open_page
   end
 end
 

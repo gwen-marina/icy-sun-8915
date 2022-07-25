@@ -6,7 +6,10 @@ class EmployeesController < ApplicationController
 
   def update 
     @employee = Employee.find(params[:id])
-    @employee.tickets.create(subject: params[:subject], age: params[:age])
-    redirect_to "/employees/#{@employee.id}"
+    ticket = Ticket.find_by(subject: params[:subject], age: params[:age])
+    if !ticket
+      @employee.tickets.create(subject: params[:subject], age: params[:age])
+    end
+      redirect_to "/employees/#{@employee.id}"
   end
 end
