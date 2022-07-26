@@ -8,4 +8,8 @@ class Ticket < ApplicationRecord
   def self.order_by_oldest 
     order(age: :desc)
   end
+
+  def self.oldest_ticket 
+    order_by_oldest.first
+  end
 end

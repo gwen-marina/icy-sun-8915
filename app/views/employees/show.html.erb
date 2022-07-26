@@ -1,4 +1,4 @@
-<h1> Employee Show Page </h1>
+<h1><%= @employee.name %>'s show page </h1>
 
 <p>Name: <%= @employee.name %></p>
 <p>Level: <%= @employee.level %></p>
@@ -10,17 +10,14 @@
 <% end %>
 
 <h2>Employee's Oldest Ticket</h2>
-<p>Subject: <%= @employee.tickets.order_by_oldest.first.subject %></p>
-<p>Age: <%= @employee.tickets.order_by_oldest.first.age %></p>
+<p>Subject: <%= @employee.tickets.oldest_ticket.subject %></p>
+<p>Age: <%= @employee.tickets.oldest_ticket.age %></p>
 
 <h2> Add ticket</h2>
 <%= form_with url: "/employees/#{@employee.id}", method: :post, local: true do |form| %>
-  <%= form.label :subject %>
-  <%= form.text_field :subject %>
+  <%= form.label :ticket_id%>
+  <%= form.text_field :ticket_id %>
 
-  <%= form.label :age %>
-  <%= form.text_field :age %>
-
-  <%= form.submit "Add ticket to employee" %>
+  <%= form.submit "Submit" %>
 <% end %>
 

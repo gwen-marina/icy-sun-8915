@@ -23,5 +23,17 @@ RSpec.describe Ticket, type: :model do
       expect(tickets[0]).to eq(tic2)
       expect(tickets[1]).to eq(tic1)
     end
+
+     it 'shows the oldest ticket' do
+      dep3 = Department.create!(name: "Marketing", floor: "seventh")
+      emp3 = dep3.employees.create!(name: "Nick Jones", level: 5)
+      tic1 = emp3.tickets.create!(subject: "Make ad", age: 3)
+      tic2 = emp3.tickets.create!(subject: "Make Instagram post", age: 4)
+      tic3 = emp3.tickets.create!(subject: "Edit ad", age: 2)
+   
+      tickets = Ticket.oldest_ticket
+    
+      expect(tickets).to eq(tic2)
+    end
   end
 end

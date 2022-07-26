@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/departments', to: 'departments#index'
   get '/employees/:id', to: 'employees#show'
   post '/employees/:id', to: 'employees#update' 
+  get '/employees/:id/tickets/new', to: 'employee_tickets#new'
 end
